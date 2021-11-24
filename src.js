@@ -1,44 +1,72 @@
-const calcularPocentajes = (limiteCO, limiteCO2, limiteHC, limiteO2, valorCO, valorCO2, valorHC, valorO2) => {
 
-    var porcentajes = new Object();
+const calcularPocentajes = (limiteCO, limiteCO2, limiteHC, limiteO2, valorCO, valorCO2, valorHC, valorO2) => {
+    //var porcentajes = new Object();
+    var porcentajes = {}
     //JSONArray jsonArray = new JSONArray();
     // y retorne un objeto con los porcentajes de tipo
     //{porcentajeCO: x%,porcentajeCO2:y%, porcentajeHC:z%, porcentajeO2:p%}
 
     if(limiteCO == 0 || limiteCO2 == 0 || limiteHC == 0 || limiteO2 == 0){
         //2. Si el límite de algún indicador es 0 entonces el porcentaje será 0 
+
         
     }
 
-    porcentajes = {porcentajeCO: x%,porcentajeCO2:y%, porcentajeHC:z%, porcentajeO2:p%}
+    porcentajes['porcentajeCO'] = 'x%';
+    porcentajes['porcentajeCO2'] = 'y%';
+    porcentajes['porcentajeHC'] = 'z%';
+    porcentajes['porcentajeO2'] = 'p%';
+
+    return porcentajes;
 }
 
-//Crear una función que se llame registrarCO,
-const registrarCO (value) => {
-// que reciba un parámetro valor, y retorne el valor cualitativo según el rango en el que esté.
-//Recorrer el arreglo rangosCO
-$.each(rangosCO, function(i, item) {
-    console.log(item); }
-    // verificar el rango en el que se encuentra la variable valor,
-    if (value >= 0.001 && value <= 0.009) {
-        //4. Devolver la propiedad etiqueta (valor equitativo). DEL RANGO “Parámetro CO en rango estandar”,
-    } else
-        //“Parametro CO fuera de rango”
-}
-
-module.exports.registrarCO = registrarCO;
-module.exports.calcularPocentajes = calcularPocentajes;
+const registrarCO = (value) => {
+    let resultado = 'fuera_de_rango';
+    global.rangosCO.filter(function(element){
+        if(value>=element.de && value<=element.hasta){
+            resultado = element.etiqueta
+        }
+    })
+    console.log(resultado)
+    }
 
 const registrarCO2 = (value) => {
-    //LO MISMO DE CO
-}
-module.exports.registrarCO2 = registrarCO2;
-module.exports.calcularPocentajes = calcularPocentajes;
+    let resultado = 'fuera_de_rango';
+    global.rangosCO2.filter(function(element){
+        if(value>=element.de && value<=element.hasta){
+            resultado = element.etiqueta
+        }
+    })
+    console.log(resultado)
+    }
+
+const registrarHC = (value) => {
+    let resultado = 'fuera_de_rango';
+    global.rangosHC.filter(function(element){
+        if(value>=element.de && value<=element.hasta){
+            resultado = element.etiqueta
+        }
+    })
+    console.log(resultado)
+    }
+
+const registrar02 = (value) => {
+    let resultado = 'fuera_de_rango';
+    global.rangos02.filter(function(element){
+        if(value>=element.de && value<=element.hasta){
+            resultado = element.etiqueta
+        }
+    })
+    console.log(resultado)
+    }
+
+let global = {}
 
 global.rangosCO = [
     { etiqueta: 'Parametro CO en rango estandar', de: 0, hasta: 10 },
     { etiqueta: 'Parametro CO fuera de rango', de: 11, hasta: 15 },
 ]
+
 global.rangosCO2 = [
     { etiqueta: 'Parametro CO2 en rango estandar', de: 0, hasta: 20 },
     { etiqueta: 'Parametro CO2 fuera de rango', de: 21, hasta: 30 },
@@ -51,3 +79,9 @@ global.rangosO2 = [
     { etiqueta: 'Parametro O2 en rango estandar', de: 0, hasta: 22 },
     { etiqueta: 'Parametro O2 fuera de rango', de: 23, hasta: 30 },
 ]
+
+module.exports.registrarCO = registrarCO;
+module.exports.registrarCO2 = registrarCO2;
+module.exports.registrarHC = registrarHC;
+module.exports.registrar02 = registrar02;
+module.exports.calcularPocentajes = calcularPocentajes;
