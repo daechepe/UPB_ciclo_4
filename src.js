@@ -1,23 +1,11 @@
 
 const calcularPocentajes = (limiteCO, limiteCO2, limiteHC, limiteO2, valorCO, valorCO2, valorHC, valorO2) => {
-    //var porcentajes = new Object();
-    var porcentajes = {}
-    //JSONArray jsonArray = new JSONArray();
-    // y retorne un objeto con los porcentajes de tipo
-    //{porcentajeCO: x%,porcentajeCO2:y%, porcentajeHC:z%, porcentajeO2:p%}
+    let porcentajeCO = limiteCO ? valorCO * 100 / limiteCO : 0;
+    let porcentajeCO2 = limiteCO2 ? valorCO2 * 100 / limiteCO2 : 0;
+    let porcentajeHC = limiteHC ? valorHC * 100 / limiteHC : 0;
+    let porcentajeO2 = limiteO2 ? valorO2 * 100 / limiteO2 : 0;
 
-    if(limiteCO == 0 || limiteCO2 == 0 || limiteHC == 0 || limiteO2 == 0){
-        //2. Si el límite de algún indicador es 0 entonces el porcentaje será 0 
-
-        
-    }
-
-    porcentajes['porcentajeCO'] = 'x%';
-    porcentajes['porcentajeCO2'] = 'y%';
-    porcentajes['porcentajeHC'] = 'z%';
-    porcentajes['porcentajeO2'] = 'p%';
-
-    return porcentajes;
+    return {porcentajeCO, porcentajeCO2, porcentajeHC, porcentajeO2}
 }
 
 const registrarCO = (value) => {
@@ -50,9 +38,9 @@ const registrarHC = (value) => {
     console.log(resultado)
     }
 
-const registrar02 = (value) => {
+const registrarO2 = (value) => {
     let resultado = 'fuera_de_rango';
-    global.rangos02.filter(function(element){
+    global.rangosO2.filter(function(element){
         if(value>=element.de && value<=element.hasta){
             resultado = element.etiqueta
         }
@@ -83,5 +71,5 @@ global.rangosO2 = [
 module.exports.registrarCO = registrarCO;
 module.exports.registrarCO2 = registrarCO2;
 module.exports.registrarHC = registrarHC;
-module.exports.registrar02 = registrar02;
+module.exports.registrarO2 = registrarO2;
 module.exports.calcularPocentajes = calcularPocentajes;
