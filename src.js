@@ -16,7 +16,7 @@ const registrarCO = (value) => {
             resultado = element.etiqueta
         }
     })
-    console.log(resultado)
+    return resultado;
     }
 
 const registrarCO2 = (value) => {
@@ -26,7 +26,7 @@ const registrarCO2 = (value) => {
             resultado = element.etiqueta
         }
     })
-    console.log(resultado)
+    return resultado;
     }
 
 const registrarHC = (value) => {
@@ -36,20 +36,20 @@ const registrarHC = (value) => {
             resultado = element.etiqueta
         }
     })
-    console.log(resultado)
+    return resultado;
     }
 
-const registrar02 = (value) => {
+const registrarO2 = (value) => {
     let resultado = 'fuera_de_rango';
-    global.rangos02.filter(function(element){
+    global.rangosO2.filter(function(element){
         if(value>=element.de && value<=element.hasta){
             resultado = element.etiqueta
         }
     })
-    console.log(resultado)
+    return resultado;
     }
 
-let global = {}
+//let global = {}
 
 global.rangosCO = [
     { etiqueta: 'Parametro CO en rango estandar', de: 0, hasta: 10 },
@@ -72,5 +72,5 @@ global.rangosO2 = [
 module.exports.registrarCO = registrarCO;
 module.exports.registrarCO2 = registrarCO2;
 module.exports.registrarHC = registrarHC;
-module.exports.registrar02 = registrar02;
+module.exports.registrarO2 = registrarO2;
 module.exports.calcularPorcentajes = calcularPorcentajes;
