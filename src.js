@@ -24,7 +24,7 @@ const registrarCO = async (value) => {
     let resultado = 'fuera_de_rango';
 
     if(value>=candidate.de && value<=candidate.hasta){
-        resultado = candidate.etiqueta
+        resultado = 'Parametro CO en rango estandar'//candidate.etiqueta
     }
     
     return resultado;
@@ -37,7 +37,7 @@ const registrarCO2 = async (value) => {
     let resultado = 'fuera_de_rango';
 
     if(value>=candidate.de && value<=candidate.hasta){
-        resultado = candidate.etiqueta
+        resultado = 'Parametro CO2 en rango estandar'//candidate.etiqueta
     }
 
     return resultado;
@@ -50,7 +50,7 @@ const registrarHC = async (value) => {
     let resultado = 'fuera_de_rango';
 
     if(value>=candidate.de && value<=candidate.hasta){
-        resultado = candidate.etiqueta
+        resultado = 'Parametro HC en rango estandar' //candidate.etiqueta
     }
 
     return resultado;
@@ -63,7 +63,7 @@ const registrarO2 = async (value) => {
     let resultado = 'fuera_de_rango';
 
     if(value>=candidate.de && value<=candidate.hasta){
-        resultado = candidate.etiqueta
+        resultado = 'Parametro O2 en rango estandar'//candidate.etiqueta
     }
 
     return resultado;
