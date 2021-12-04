@@ -1,4 +1,23 @@
+const express = require( "express");
+const app = express();
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.get("tu ruta aquí ", (req, res) => {
+  ///api/emissionmeasurement/ranges_parameters
+  //manejador paa retornar los rangos
+});
+app.post("tu ruta aquí", (req, res) => {
+  //api/emissionmeasurement/ranges_parameters
+  //range creation
+});
+app.get(
+  "tu ruta aquí",
+  //api/emission-measurement/limits
+  //retornar los límites
+);
+module.exports = app;
 
+/* Sprint 3
 const calcularPorcentajes = async (valorCO, valorCO2, valorHC, valorO2) => {
 
     let response = await fetch('https://misiontic2022upb.vercel.app/api/emission-measurement/limits');
@@ -69,6 +88,7 @@ const registrarO2 = async (value) => {
     return resultado;
     }
 
+*/
 //global {}
 /* Sprint 2
 global.rangosCO = [
@@ -89,9 +109,10 @@ global.rangosO2 = [
     { etiqueta: 'Parametro O2 fuera de rango', de: 23, hasta: 30 },
 ]
 */
-
+/*
 module.exports.registrarCO = registrarCO;
 module.exports.registrarCO2 = registrarCO2;
 module.exports.registrarHC = registrarHC;
 module.exports.registrarO2 = registrarO2;
 module.exports.calcularPorcentajes = calcularPorcentajes;
+*/
