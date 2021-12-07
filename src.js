@@ -2,19 +2,22 @@ const express = require( "express");
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.get("tu ruta aquí ", (req, res) => {
-  ///api/emissionmeasurement/ranges_parameters
-  //manejador paa retornar los rangos
+
+app.get("api/emissionmeasurement/ranges_parameters", (req, res) => {
+    res.json([ranges_parameters]);
 });
-app.post("tu ruta aquí", (req, res) => {
-  //api/emissionmeasurement/ranges_parameters
-  //range creation
+
+app.post("api/emissionmeasurement/ranges_parameters", (req, res) => {
+    const newRange = req.body;
+    ranges_parameters.push(newRange)
+    res.json([ranges_parameters]);
 });
+
 app.get(
-  "tu ruta aquí",
-  //api/emission-measurement/limits
-  //retornar los límites
-);
+    "api/emission-measurement/limits",
+    res.json([limits]) ); 
+
+
 module.exports = app;
 
 /* Sprint 3
