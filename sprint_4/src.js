@@ -1,5 +1,6 @@
-const express = require( "express");
+const express = require("express");
 const app = express();
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -16,6 +17,11 @@ app.post("/api/emissionmeasurement/ranges_parameters", (req, res) => {
 app.get("/api/emission-measurement/limits", (req, res) => {
     res.json([limits]); 
 }); 
+
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
 
 
 module.exports = app;
